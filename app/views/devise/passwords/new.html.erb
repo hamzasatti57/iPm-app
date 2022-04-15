@@ -1,0 +1,22 @@
+<%= render 'layouts/breadcrumb_headings' %>
+
+<div class="row">
+  <!-- Forget password form -->
+  <div class="col-md-8">
+    <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post, :role => 'form' }) do |f| %>
+      <%= devise_error_messages! %>
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email, :autofocus => true, class: 'form-control', placeholder: 'eg. john@doe.com' %>
+        <span class="help-block">Please enter your email address.</span>
+      </div>
+      <%= f.submit 'Send', :class => 'button right btn btn-primary-custom', :onclick => "return;" %>
+    <% end %>
+  </div>
+
+  <!-- Search documents -->
+  <div class="col-md-4">
+    <%= render 'layouts/side_widget' %>
+  </div>
+
+</div>

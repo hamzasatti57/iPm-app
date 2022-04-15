@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!--  Fontawesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Meta tags -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "iPM App" %>">
+  <%= csrf_meta_tags %>
+
+  <!-- Application title -->
+  <title><%= content_for?(:title) ? yield(:title) : "iPM App" %></title>
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+</head>
+
+<!-- Application Body -->
+<body>
+<div class="container">
+  <%= render 'layouts/header' %>
+  <div class="main-div">
+    <%= render 'layouts/messages' %>
+    <%= yield %>
+  </div>
+</div>
+<!--Footer-->
+<%= render 'layouts/footer' unless params[:controller] == 'documents' && params[:action] == 'new' %>
+</body>
+</html>
